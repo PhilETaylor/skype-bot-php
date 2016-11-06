@@ -19,9 +19,9 @@ class FileTokenStorage implements TokenStorageInterface
     /**
      * @param string $file
      */
-    public function __construct($file = null)
+    public function __construct($file = NULL)
     {
-        if (null === $file) {
+        if (NULL === $file) {
             $file = isset($_SERVER['HOME']) ? $_SERVER['HOME'] . DIRECTORY_SEPARATOR . '.skype' : sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.skype';
         }
 
@@ -34,9 +34,9 @@ class FileTokenStorage implements TokenStorageInterface
      */
     public function read($key = 'access_token')
     {
-        $content = $this->fileSystem->exists($this->file) ? Yaml::parse(file_get_contents($this->file)) : [];
+        $content = Yaml::parse(file_get_contents($this->file));
 
-        return isset($content[$key]) ? $content[$key] : null;
+        return isset($content[$key]) ? $content[$key] : NULL;
     }
 
     /**

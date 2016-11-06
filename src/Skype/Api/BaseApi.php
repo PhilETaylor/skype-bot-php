@@ -17,24 +17,24 @@ abstract class BaseApi
     /**
      * BaseApi constructor.
      * @param ClientInterface $client
-     * @param null            $token
+     * @param null $token
      */
-    public function __construct(ClientInterface $client, $token = null, LoggerInterface $logger = null)
+    public function __construct(ClientInterface $client, $token = NULL, LoggerInterface $logger = NULL)
     {
         $this->client = $client;
-        $this->token  = $token;
+        $this->token = $token;
         $this->logger = $logger;
     }
 
     /**
      * @param $method
-     * @param  null                                $uri
-     * @param  array                               $options
+     * @param  null $uri
+     * @param  array $options
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function request($method, $uri = null, array $options = [])
+    protected function request($method, $uri = NULL, array $options = [])
     {
-        if (null !== $this->token) {
+        if (NULL !== $this->token) {
             $options = array_merge($options, [
                 'headers' => [
                     'Authorization' => sprintf('Bearer %s', $this->token)

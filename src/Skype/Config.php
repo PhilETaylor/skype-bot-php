@@ -23,7 +23,7 @@ final class Config
     /**
      * @var Http errors
      */
-    private $_httpErrors = false;
+    private $_httpErrors = FALSE;
     /**
      * @var Token storage file path
      */
@@ -32,7 +32,7 @@ final class Config
     /**
      * Constructor
      *
-     * @param  array          $data Array of parameters
+     * @param  array $data Array of parameters
      * @throws SkypeException Unknown property
      */
     public function __construct(array $data = [])
@@ -48,8 +48,8 @@ final class Config
     /**
      * Set option
      *
-     * @param  string  $key   Option name
-     * @param  mixed   $value Option value
+     * @param  string $key Option name
+     * @param  mixed $value Option value
      * @access  public
      * @return boolean
      */
@@ -62,16 +62,16 @@ final class Config
             $r->getProperty($name);
             $this->$name = $value;
 
-            return true;
+            return TRUE;
         } catch (\ReflectionException $e) {
-            return false;
+            return FALSE;
         }
     }
 
     /**
      * Get option
      *
-     * @param  string         $option Option name
+     * @param  string $option Option name
      * @access  public
      * @return mixed
      * @throws SkypeException Wrong property
