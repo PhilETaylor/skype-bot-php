@@ -23,7 +23,7 @@ final class Config
     /**
      * @var Http errors
      */
-    private $_httpErrors = FALSE;
+    private $_httpErrors = true;
     /**
      * @var Token storage file path
      */
